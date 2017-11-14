@@ -1,5 +1,7 @@
 package com.euphoriastream.android;
 
+import android.media.AudioManager;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -8,6 +10,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import java.io.IOException;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -26,6 +30,12 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+
+        String url = "http://blaiseban.com/quake_music/pressure.mp3";
+        if (AudioPlayer.audioPlayer == null)
+            new AudioPlayer();
+        AudioPlayer.audioPlayer.playStream(url);
+
     }
 
     @Override
